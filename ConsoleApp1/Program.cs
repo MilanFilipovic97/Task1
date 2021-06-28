@@ -8,36 +8,34 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
+            List<int> ListOne = new List<int>() { 1, 3, 5, 7 };
+            List<int> ListTwo = new List<int>() { 2, 4, 6, 8 };
+            List<int> ListThree = new List<int>() { 0, 9, 10, 11 };
+
+            List<int> newList = new List<int>();
+
+            foreach (int i in ListOne)
             {
-                int[] array = new int[] { 1, 2, 3, 4, 5, 6, 7 };
-                int[] arrayTwo = new int[] { 5, 7, 3 };
-
-                int index = 0;
-
-                for (int i = 0; i < array.Length; i++)
-                {
-                    for (int j = 0; j < arrayTwo.Length; j++)
-                    {
-                        if (array[i] == arrayTwo[j])
-                        {
-                            int temp = arrayTwo[index];
-                            arrayTwo[index] = arrayTwo[j];
-                            arrayTwo[j] = temp;
-
-                            index++;
-                        }
-                    }
-                }
-
-                foreach (int j in arrayTwo)
-                {
-                    Console.WriteLine(j);
-                }
-
-
+                newList.Add(i);             // adding elements in newList
+            }
+            foreach (int i in ListTwo)
+            {
+                newList.Add(i);             // adding elements in newList
+            }
+            foreach (int i in ListThree)
+            {
+                newList.Add(i);             // adding elements in newList
             }
 
+            newList.Sort();                 //Sorting 
+
+            foreach (int i in newList)
+            {
+                Console.WriteLine(i + " "); //Printing the result
+            }
+
+
         }
-       
+
     }
 }
