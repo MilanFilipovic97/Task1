@@ -8,35 +8,68 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            List<int> ListOne = new List<int>() { 1, 3, 5, 7 };
-            List<int> ListTwo = new List<int>() { 2, 4, 6, 8 };
-            List<int> ListThree = new List<int>() { 0, 9, 10, 11 };
+            {/* Start with the empty list */
+                LinkedList llist = new LinkedList();
+                llist.push(1);
+                llist.push(3);
+                llist.push(1);
+                llist.push(2);
+                llist.push(1);
 
-            List<int> newList = new List<int>();
+                Console.WriteLine("Count of nodes is " +
+                                llist.getCount());
 
-            foreach (int i in ListOne)
-            {
-                newList.Add(i);             // adding elements in newList
-            }
-            foreach (int i in ListTwo)
-            {
-                newList.Add(i);             // adding elements in newList
-            }
-            foreach (int i in ListThree)
-            {
-                newList.Add(i);             // adding elements in newList
+
+
             }
 
-            newList.Sort();                 //Sorting 
-            Console.WriteLine("Sorted list... "); //Printing the result
-            foreach (int i in newList)
+        }
+        public class Node
+        {
+            public int data;
+            public Node next;
+            public Node(int d)
             {
-                Console.WriteLine(i + " "); //Printing the result
+                data = d; next = null;
             }
+        }
+        // Linked List class
+        public class LinkedList
+        {
+            Node head; // head of list
+
+            /* Inserts a new Node at front of the list. */
+            public void push(int new_data)
+            {
+                /* 1 & 2: Allocate the Node &
+                        Put in the data*/
+                Node new_node = new Node(new_data);
+
+                /* 3. Make next of new Node as head */
+                new_node.next = head;
+
+                /* 4. Move the head to point to new Node */
+                head = new_node;
+            }
+
+            /* Returns count of nodes in linked list */
+            public int getCount()
+            {
+                Node temp = head;
+                int count = 0;
+                while (temp != null)
+                {
+                    count++;
+                    temp = temp.next;
+                }
+                return count;
+            }
+
+            /* Driver program to test above functions. Ideally
+            this function should be in a separate user class.
+            It is kept here to keep code compact */
 
         }
 
     }
-   
 }
-
